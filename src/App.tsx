@@ -1,7 +1,5 @@
-import "./App.css";
-
 function App() {
-  return null;
+  return <div className="min-h-screen font-main"></div>;
 }
 
 export default App;
