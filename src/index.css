@@ -14,4 +14,22 @@
   --base-rose-900: hsl(14, 65%, 9%);
 
   --font-main: "Red Hat Text", sans-serif;
+
+  --color-ink-primary: var(--base-rose-900);
+  --color-ink-secondary: var(--base-rose-500);
+  --color-ink-tertiary: var(--base-rose-400);
+  --color-ink-accent: var(--base-red);
+  --color-ink-white: var(--base-white);
+
+  --color-surface-app: var(--base-rose-50);
+  --color-surface-cart: var(--base-white);
+  --color-surface-modal: var(--base-white);
+  --color-surface-button: var(--base-white);
+  --color-surface-active: var(--base-red);
+  --color-surface-backdrop: var(--base-black);
+
+  --color-line-primary: var(--base-rose-400);
+  --color-line-decorator: var(--base-rose-100);
+  --color-line-accent: var(--base-red);
+  --color-line-white: var(--base-white);
 }
