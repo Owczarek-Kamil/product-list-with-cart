@@ -1,14 +1,18 @@
 {
   "name": "product-list-with-card",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Solution for the Frontend Mentor challenge. Built with Vite, React, Tailwind CSS, and Headless UI (modal only).",
   "type": "module",
+  "homepage": "https://Owczarek-Kamil/product-list-with-cart",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json,css,md}": "prettier --write"
@@ -33,6 +37,7 @@
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^6.3.0",
     "globals": "^17.6.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
