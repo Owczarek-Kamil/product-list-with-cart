@@ -1,5 +1,5 @@
 import formatPrice from "../utils/formatters";
-import type { Product, AddOneToCart, RemoveOneFromCart, CartItem } from "../utils/types";
+import type { Product, AddOneToCart, RemoveOneFromCart, CartItems } from "../utils/types";
 
 export function ProductItem({
   product,
@@ -113,19 +113,20 @@ export function ProductItem({
 
 export default function ProductList({
   products,
-  cartItems,
+  cartItemsMap,
   addOneToCart,
   removeOneFromCart,
 }: {
   products: Product[];
-  cartItems: CartItem[];
+  cartItemsMap: CartItems;
   addOneToCart: AddOneToCart;
   removeOneFromCart: RemoveOneFromCart;
 }) {
   return (
     <ul className="flex flex-col gap-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-8 md:grid-cols-3">
       {products.map((product, index) => {
-        const cartItem = cartItems.find((cartItem) => cartItem.name === product.name);
+        const cartItem = cartItemsMap[product.name];
+
         const quantity = cartItem?.quantity ?? 0;
         const isSelected = quantity > 0;
 

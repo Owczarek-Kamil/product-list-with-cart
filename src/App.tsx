@@ -10,6 +10,7 @@ const products = data as Product[];
 
 function App() {
   const {
+    cartItemsMap,
     cartItems,
     cartIsEmpty,
     cartItemsCount,
@@ -30,7 +31,7 @@ function App() {
             <h1 className="text-[2.5rem] leading-[1.2] font-bold text-ink-primary">Desserts</h1>
             <ProductList
               products={products}
-              cartItems={cartItems}
+              cartItemsMap={cartItemsMap}
               addOneToCart={addOneToCart}
               removeOneFromCart={removeOneFromCart}
             />

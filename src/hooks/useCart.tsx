@@ -1,57 +1,82 @@
 import { useState } from "react";
-import type { CartItem, AddOneToCart, RemoveOneFromCart, RemoveFromCart } from "../utils/types";
+import type { AddOneToCart, RemoveOneFromCart, RemoveFromCart, CartItems } from "../utils/types";
 
 export default function useCart() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItems>({});
 
-  const cartIsEmpty = cartItems.length === 0;
+  const cartItemsArray = Object.values(cartItems);
 
-  const cartItemsCount = cartItems.reduce(
+  const cartIsEmpty = cartItemsArray.length === 0;
+
+  const cartItemsCount = cartItemsArray.reduce(
     (accumulator, currentValue) => accumulator + currentValue.quantity,
     0,
   );
 
-  const cartTotal = cartItems.reduce(
+  const cartTotal = cartItemsArray.reduce(
     (accumulator, currentValue) => accumulator + currentValue.quantity * currentValue.price,
     0,
   );
 
-  const addOneToCart: AddOneToCart = (cartItem) => {
+  const addOneToCart: AddOneToCart = (cartItemPayload) => {
     setCartItems((prevCartItems) => {
-      const existingItem = prevCartItems.find((item) => item.name === cartItem.name);
+      const existingItem = prevCartItems[cartItemPayload.name];
 
       if (existingItem) {
-        return prevCartItems.map((item) =>
-          item.name === cartItem.name ? { ...item, quantity: item.quantity + 1 } : item,
-        );
+        return {
+          ...prevCartItems,
+          [cartItemPayload.name]: {
+            ...existingItem,
+            quantity: existingItem.quantity + 1,
+          },
+        };
       }
 
-      return [...prevCartItems, { ...cartItem, quantity: 1 }];
+      return {
+        ...prevCartItems,
+        [cartItemPayload.name]: {
+          ...cartItemPayload,
+          quantity: 1,
+        },
+      };
     });
   };
 
-  const removeFromCart: RemoveFromCart = (cartName) =>
-    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.name !== cartName));
-
-  const removeOneFromCart: RemoveOneFromCart = (cartItem) => {
-    const existingItem = cartItems.find((item) => item.name === cartItem.name);
-
-    if (existingItem && existingItem.quantity === 1) {
-      removeFromCart(cartItem.name);
-      return;
-    }
-
+  const removeFromCart: RemoveFromCart = (name) => {
     setCartItems((prevCartItems) => {
-      return prevCartItems.map((item) =>
-        item.name === cartItem.name ? { ...item, quantity: item.quantity - 1 } : item,
-      );
+      const newCart = { ...prevCartItems };
+      delete newCart[name];
+      return newCart;
     });
   };
 
-  const clearCart = () => setCartItems([]);
+  const removeOneFromCart: RemoveOneFromCart = (cartItemPayload) => {
+    setCartItems((prevCartItems) => {
+      const existingItem = prevCartItems[cartItemPayload.name];
+
+      if (!existingItem) return prevCartItems;
+
+      if (existingItem.quantity === 1) {
+        const newCart = { ...prevCartItems };
+        delete newCart[cartItemPayload.name];
+        return newCart;
+      }
+
+      return {
+        ...prevCartItems,
+        [cartItemPayload.name]: {
+          ...existingItem,
+          quantity: existingItem.quantity - 1,
+        },
+      };
+    });
+  };
+
+  const clearCart = () => setCartItems({});
 
   return {
-    cartItems: cartItems,
+    cartItemsMap: cartItems,
+    cartItems: cartItemsArray,
     cartIsEmpty: cartIsEmpty,
     cartItemsCount: cartItemsCount,
     cartTotal: cartTotal,
