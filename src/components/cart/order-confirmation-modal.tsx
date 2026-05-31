@@ -35,7 +35,7 @@ export default function OrderConfirmationModal({
         <DialogPanel className="mt-23.75 flex w-full max-w-148 flex-col gap-8 rounded-xl bg-surface-card p-6 md:mt-0">
           <div className="flex flex-col gap-6">
             <img
-              src="/assets/icon-order-confirmed.svg"
+              src="./assets/icon-order-confirmed.svg"
               alt=""
               className="size-12"
               width={48}

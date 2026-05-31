@@ -23,7 +23,7 @@ export default function Cart({
       <h2 className="text-2xl font-bold text-ink-accent">Your Cart ({cartItemsCount})</h2>
       {cartIsEmpty ? (
         <div className="flex flex-col items-center gap-4 pb-4">
-          <img src="/assets/illustration-empty-cart.svg" alt="" width={128} height={128} />
+          <img src="./assets/illustration-empty-cart.svg" alt="" width={128} height={128} />
           <span className="text-sm font-semibold text-ink-secondary">
             Your added items will appear here
           </span>

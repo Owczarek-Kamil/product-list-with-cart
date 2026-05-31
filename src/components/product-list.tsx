@@ -101,7 +101,7 @@ export function ProductItem({
         <button
           onClick={addOneToCartHandler}
           className="group order-2 -mt-5.5 flex h-11 w-40 cursor-pointer items-center gap-2 self-center rounded-full border border-line-secondary bg-button px-6.5 py-3 transition-colors hover:border-current hover:text-ink-accent focus-visible:border-current focus-visible:text-ink-accent">
-          <img src="/assets/icon-add-to-cart.svg" alt="" className="size-5" />
+          <img src="./assets/icon-add-to-cart.svg" alt="" className="size-5" />
           <span className="text-sm font-semibold text-ink-primary transition-colors group-hover:text-current group-focus-visible:text-current">
             Add to Cart
           </span>

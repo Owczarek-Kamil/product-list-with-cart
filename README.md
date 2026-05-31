@@ -2,6 +2,10 @@
 
 This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+## 🚀Live Demo
+
+Live Site URL: https://owczarek-kamil.github.io/product-list-with-cart/
+
 ## Built with
 
 - [Vite](https://vitejs.dev/) - Frontend Tooling
@@ -9,3 +13,10 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 - [Tailwind CSS v4](https://tailwindcss.com/) - For styles
 - [Headless UI](https://headlessui.com/) - For accessible modal component
 - TypeScript
+
+## ✨ Key Features
+
+- Normalized State Management ($O(1)$ operations with dictionary pattern)
+- Fully accessible (A11y friendly)
+- Perfect Lighthouse Score (100/100)
+- Responsive images with `<picture>` element
