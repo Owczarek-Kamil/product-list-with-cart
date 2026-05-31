@@ -63,6 +63,7 @@ export function ProductItem({
       {isSelected ? (
         <div className="order-2 -mt-5.5 flex h-11 w-40 items-center justify-between self-center rounded-full bg-button-active p-3">
           <button
+            type="button"
             onClick={removeOneFromCartHandler}
             aria-label={`Remove one piece of ${product.name} from the cart`}
             className="grid size-5 cursor-pointer place-items-center rounded-full border border-current text-ink-white transition-colors hover:bg-button hover:text-ink-accent focus-visible:bg-button focus-visible:text-ink-accent">
@@ -80,6 +81,7 @@ export function ProductItem({
             {quantity}
           </span>
           <button
+            type="button"
             onClick={addOneToCartHandler}
             aria-label={`Add one piece of ${product.name} to the cart`}
             className="grid size-5 cursor-pointer place-items-center rounded-full border border-current text-ink-white transition-colors hover:bg-button hover:text-ink-accent focus-visible:bg-button focus-visible:text-ink-accent">
@@ -99,6 +101,7 @@ export function ProductItem({
         </div>
       ) : (
         <button
+          type="button"
           onClick={addOneToCartHandler}
           className="group order-2 -mt-5.5 flex h-11 w-40 cursor-pointer items-center gap-2 self-center rounded-full border border-line-secondary bg-button px-6.5 py-3 transition-colors hover:border-current hover:text-ink-accent focus-visible:border-current focus-visible:text-ink-accent">
           <img src="./assets/icon-add-to-cart.svg" alt="" className="size-5" />

@@ -26,8 +26,8 @@ function App() {
   return (
     <>
       <div className="min-h-screen min-w-80 bg-surface-app p-6 md:p-10">
-        <div className="mx-auto flex max-w-304 flex-col gap-8 font-main xl:flex-row xl:items-start">
-          <main className="flex flex-col gap-8 xl:max-w-200">
+        <main className="mx-auto flex max-w-304 flex-col gap-8 font-main xl:flex-row xl:items-start">
+          <div className="flex flex-col gap-8 xl:max-w-200">
             <h1 className="text-[2.5rem] leading-[1.2] font-bold text-ink-primary">Desserts</h1>
             <ProductList
               products={products}
@@ -35,7 +35,7 @@ function App() {
               addOneToCart={addOneToCart}
               removeOneFromCart={removeOneFromCart}
             />
-          </main>
+          </div>
           <Cart
             cartItems={cartItems}
             cartIsEmpty={cartIsEmpty}
@@ -44,7 +44,7 @@ function App() {
             removeFromCart={removeFromCart}
             onConfirmOrder={open}
           />
-        </div>
+        </main>
       </div>
       <OrderConfirmationModal
         isOpen={isOpen}

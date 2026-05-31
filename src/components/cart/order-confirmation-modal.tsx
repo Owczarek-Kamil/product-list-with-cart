@@ -54,6 +54,7 @@ export default function OrderConfirmationModal({
             <OrderTotal cartTotal={cartTotal} />
           </div>
           <button
+            type="reset"
             onClick={closeHandler}
             className="mt-auto cursor-pointer rounded-full bg-button-active p-4 text-center font-semibold text-ink-white">
             Start New Order

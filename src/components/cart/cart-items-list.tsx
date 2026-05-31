@@ -39,6 +39,7 @@ export function CartRow({ cartItem, onRemove }: { cartItem: CartItem; onRemove: 
         <span className="sr-only">{`${quantity} piece${quantity === 1 ? "" : "s"} of ${name} (${formatPrice(price)} each) for the total of ${formatPrice(totalPrice)}`}</span>
 
         <button
+          type="button"
           onClick={removeItemHandler}
           aria-label={`Remove ${name} from the cart`}
           className="grid size-5 cursor-pointer place-items-center rounded-full border border-current text-button-destructive transition-colors hover:text-button-destructive-active focus-visible:text-button-destructive-active">
