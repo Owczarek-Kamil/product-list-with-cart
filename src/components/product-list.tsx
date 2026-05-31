@@ -7,12 +7,14 @@ export function ProductItem({
   isSelected,
   addOneToCart,
   removeOneFromCart,
+  isPriority,
 }: {
   product: Product;
   quantity: number;
   isSelected: boolean;
   addOneToCart: AddOneToCart;
   removeOneFromCart: RemoveOneFromCart;
+  isPriority?: boolean;
 }) {
   const cartItem = {
     name: product.name,
@@ -25,15 +27,29 @@ export function ProductItem({
   const removeOneFromCartHandler = () => removeOneFromCart(cartItem);
 
   return (
-    <article className="flex flex-col" aria-selected={isSelected ? "true" : "false"}>
+    <article className="flex flex-col">
       <div className="order-1">
         <picture>
-          <source media="(min-width: 768px)" srcSet={product.image.tablet} />
-          <source media="(min-width: 1280px)" srcSet={product.image.desktop} />
+          <source
+            media="(min-width: 768px)"
+            srcSet={product.image.tablet}
+            width={213}
+            height={212}
+          />
+          <source
+            media="(min-width: 1280px)"
+            srcSet={product.image.desktop}
+            width={250}
+            height={240}
+          />
           <img
             src={product.image.mobile}
             alt=""
-            className={`rounded-lg border-2 transition-colors ${isSelected ? "border-line-accent" : "border-transparent"}`}
+            width={327}
+            height={212}
+            fetchPriority={isPriority ? "high" : "auto"}
+            loading={isPriority ? "eager" : "lazy"}
+            className={`h-auto w-full rounded-lg border-2 transition-colors ${isSelected ? "border-line-accent" : "border-transparent"}`}
           />
         </picture>
       </div>
@@ -108,7 +124,7 @@ export default function ProductList({
 }) {
   return (
     <ul className="flex flex-col gap-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-8 md:grid-cols-3">
-      {products.map((product) => {
+      {products.map((product, index) => {
         const cartItem = cartItems.find((cartItem) => cartItem.name === product.name);
         const quantity = cartItem?.quantity ?? 0;
         const isSelected = quantity > 0;
@@ -121,6 +137,7 @@ export default function ProductList({
               isSelected={isSelected}
               addOneToCart={addOneToCart}
               removeOneFromCart={removeOneFromCart}
+              isPriority={index === 0}
             />
           </li>
         );
