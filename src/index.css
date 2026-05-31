@@ -15,21 +15,28 @@
 
   --font-main: "Red Hat Text", sans-serif;
 
+  /* Text colors */
   --color-ink-primary: var(--base-rose-900);
   --color-ink-secondary: var(--base-rose-500);
-  --color-ink-tertiary: var(--base-rose-400);
-  --color-ink-accent: var(--base-red);
   --color-ink-white: var(--base-white);
+  --color-ink-accent: var(--base-red);
 
+  /* Background colors  */
   --color-surface-app: var(--base-rose-50);
-  --color-surface-cart: var(--base-white);
-  --color-surface-modal: var(--base-white);
-  --color-surface-button: var(--base-white);
-  --color-surface-active: var(--base-red);
+  --color-surface-card: var(--base-white);
+  --color-surface-card-secondary: var(--base-rose-50);
   --color-surface-backdrop: var(--base-black);
 
-  --color-line-primary: var(--base-rose-400);
-  --color-line-decorator: var(--base-rose-100);
+  /* Button colors  */
+  --color-button: var(--base-white);
+  --color-button-active: var(--base-red);
+  --color-button-destructive: var(--base-rose-400);
+  --color-button-destructive-active: var(--base-rose-900);
+  /* --color-button-action: var(--base-white);
+  --color-button-action-active: var(--base-white); */
+
+  /* Decorator colors */
+  --color-line-primary: var(--base-rose-100);
+  --color-line-secondary: var(--base-rose-400);
   --color-line-accent: var(--base-red);
-  --color-line-white: var(--base-white);
 }
