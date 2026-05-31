@@ -55,7 +55,7 @@ export function ModalRow({ cartItem }: { cartItem: CartItem }) {
 
   return (
     <div className="flex items-center gap-4 border-b border-line-primary pb-4 group-last:border-b-0 group-last:pb-0">
-      <img src={thumbnail} alt="" className="size-12 rounded-sm" />
+      <img src={thumbnail} alt="" className="size-12 rounded-sm" width={48} height={48} />
       <div aria-hidden="true" className="flex w-full items-center justify-between gap-2">
         <div className="flex flex-col justify-between gap-2">
           <span className="text-sm font-semibold text-ink-primary">{name}</span>

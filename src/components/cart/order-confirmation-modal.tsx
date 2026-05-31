@@ -23,14 +23,24 @@ export default function OrderConfirmationModal({
   };
 
   return (
-    <Dialog open={isOpen} onClose={close} className="relative z-50">
+    <Dialog
+      open={isOpen}
+      onClose={close}
+      transition
+      className="relative z-50 transition duration-300 ease-out data-closed:opacity-0">
       <DialogBackdrop className="fixed inset-0 bg-surface-backdrop/50" />
       {/* Full-screen container to center the panel */}
       <div className="fixed inset-0 flex items-center justify-center">
         {/* The actual dialog panel  */}
         <DialogPanel className="mt-23.75 flex w-full max-w-148 flex-col gap-8 rounded-xl bg-surface-card p-6 md:mt-0">
           <div className="flex flex-col gap-6">
-            <img src="/assets/icon-order-confirmed.svg" alt="" className="size-6" />
+            <img
+              src="/assets/icon-order-confirmed.svg"
+              alt=""
+              className="size-12"
+              width={48}
+              height={48}
+            />
             <div className="flex flex-col gap-2">
               <DialogTitle className="text-[2.5rem] leading-[1.2] font-bold text-ink-primary">
                 Order Confirmed
